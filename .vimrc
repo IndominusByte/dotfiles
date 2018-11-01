@@ -51,7 +51,7 @@ Plugin 'davidhalter/jedi-vim'
 "autocorrection python file
 Plugin 'vim-syntastic/syntastic'
 "templating jinja
-Plugin 'mitsuhiko/jinja2'
+Plugin 'glench/vim-jinja2-syntax'
 call vundle#end()
 
 set t_Co=256
@@ -69,7 +69,7 @@ let g:phpcomplete_complete_for_unknown_classes = 1
 let g:phpcomplete_search_tags_for_variables = 1
 let g:phpcomplete_cache_taglists = 1
 
-"au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
+au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 au BufNewFile,BufRead [Dd]ockerfile,Dockerfile.* set filetype=dockerfile
 
 set wildignore+=*.pyc,*.swp
