@@ -84,3 +84,19 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+"untuk membaca packages python
+function! LoadPythonPath() 
+py <<EOF
+    # load PYTHONPATH into vim, this lets you hover over a module name
+    # and type 'gf' (for goto file) and open that file in vim. Useful
+    # and easier than rope for simple tasks 
+    import os.path
+    import sys
+    import vim
+    for p in sys.path:
+        if os.path.isdir(p):
+            vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
+EOF
+
+    endfunction
