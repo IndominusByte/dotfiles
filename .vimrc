@@ -54,7 +54,6 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'glench/vim-jinja2-syntax'
 call vundle#end()
 
-set t_Co=256
 colorscheme Tomorrow-Night
 
 augroup VimCSS3Syntax
@@ -69,7 +68,7 @@ let g:phpcomplete_complete_for_unknown_classes = 1
 let g:phpcomplete_search_tags_for_variables = 1
 let g:phpcomplete_cache_taglists = 1
 
-au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
+"au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 au BufNewFile,BufRead [Dd]ockerfile,Dockerfile.* set filetype=dockerfile
 
 set wildignore+=*.pyc,*.swp
@@ -85,18 +84,3 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-"untuk membaca packages python
-function! LoadPythonPath() 
-py <<EOF
-    # load PYTHONPATH into vim, this lets you hover over a module name
-    # and type 'gf' (for goto file) and open that file in vim. Useful
-    # and easier than rope for simple tasks 
-    import os.path
-    import sys
-    import vim
-    for p in sys.path:
-        if os.path.isdir(p):
-            vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
-EOF
-
-    endfunction
