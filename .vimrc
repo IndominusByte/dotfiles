@@ -17,8 +17,7 @@ filetype plugin indent on
 let mapleader = ","
 nmap <Leader>m :e $MYVIMRC<cr>
 nmap <Leader>t :NERDTreeToggle<cr>
-nmap <Leader>p :set paste<cr>
-nmap <Leader>[ :set nopaste<cr>
+nmap <Leader>p :bnext<cr>
 let NERDTreeHijackNetrw = 0
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
@@ -52,6 +51,8 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'vim-syntastic/syntastic'
 "templating jinja
 Plugin 'glench/vim-jinja2-syntax'
+" c autocomplete must install sudo apt install clang
+Plugin 'justmao945/vim-clang'
 call vundle#end()
 
 colorscheme Tomorrow-Night
@@ -83,4 +84,3 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
