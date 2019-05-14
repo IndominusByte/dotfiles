@@ -17,7 +17,7 @@ filetype plugin indent on
 let mapleader = ","
 nmap <Leader>m :e $MYVIMRC<cr>
 nmap <Leader>t :NERDTreeToggle<cr>
-nmap <Leader>p :bnext<cr>
+nmap <Leader>p :SyntasticToggleMode<cr>
 let NERDTreeHijackNetrw = 0
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
