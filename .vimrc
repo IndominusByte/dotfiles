@@ -53,6 +53,8 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'glench/vim-jinja2-syntax'
 " c autocomplete must install sudo apt install clang
 Plugin 'justmao945/vim-clang'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'posva/vim-vue'
 call vundle#end()
 
 colorscheme Tomorrow-Night
@@ -84,3 +86,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:used_javascript_libs = 'vue'
+autocmd BufNewFile,BufRead *.vue set filetype=vue
+autocmd FileType vue syntax sync fromstart
