@@ -18,6 +18,8 @@ let mapleader = ","
 nmap <Leader>m :e $MYVIMRC<cr>
 nmap <Leader>t :NERDTreeToggle<cr>
 nmap <Leader>p :SyntasticToggleMode<cr>
+imap <c-p> <c-x><c-o>
+
 let NERDTreeHijackNetrw = 0
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
@@ -65,7 +67,7 @@ autocmd!
 autocmd FileType css setlocal iskeyword+=-
 augroup END
 
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php,*.vue'
 let g:phpcomplete_relax_static_constraint = 1
 let g:phpcomplete_complete_for_unknown_classes = 1
 let g:phpcomplete_search_tags_for_variables = 1
