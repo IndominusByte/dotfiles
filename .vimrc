@@ -18,6 +18,7 @@ let mapleader = ","
 nmap <Leader>m :e $MYVIMRC<cr>
 nmap <Leader>t :NERDTreeToggle<cr>
 nmap <Leader>p :SyntasticToggleMode<cr>
+nmap <Leader>l :FZF<cr>
 imap <c-p> <c-x><c-o>
 
 let NERDTreeHijackNetrw = 0
@@ -57,9 +58,12 @@ Plugin 'glench/vim-jinja2-syntax'
 Plugin 'justmao945/vim-clang'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'posva/vim-vue'
+"search
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'unkiwii/vim-nerdtree-sync'
 call vundle#end()
 
-colorscheme Tomorrow-Night
+colorscheme velenjak
 
 augroup VimCSS3Syntax
 autocmd!
@@ -76,7 +80,7 @@ let g:phpcomplete_cache_taglists = 1
 "au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 au BufNewFile,BufRead [Dd]ockerfile,Dockerfile.* set filetype=dockerfile
 
-set wildignore+=*.pyc,*.swp
+set wildignore+=*.pyc
 "Nerdtree config for wildignore
 let NERDTreeRespectWildIgnore=1
 
@@ -92,3 +96,6 @@ let g:syntastic_check_on_wq = 0
 let g:used_javascript_libs = 'vue'
 autocmd BufNewFile,BufRead *.vue set filetype=vue
 autocmd FileType vue syntax sync fromstart
+
+let g:nerdtree_sync_cursorline = 1
+let g:NERDTreeHighlightCursorline = 1
