@@ -80,7 +80,7 @@ let g:phpcomplete_cache_taglists = 1
 "au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 au BufNewFile,BufRead [Dd]ockerfile,Dockerfile.* set filetype=dockerfile
 
-set wildignore+=*.pyc
+set wildignore+=*.pyc,*.swp
 "Nerdtree config for wildignore
 let NERDTreeRespectWildIgnore=1
 
