@@ -102,3 +102,6 @@ autocmd FileType vue syntax sync fromstart
 let g:nerdtree_sync_cursorline = 1
 let g:NERDTreeHighlightCursorline = 1
 let g:python_highlight_all = 1
+
+"pip install flake8
+let g:syntastic_python_flake8_args='--ignore=E302,E231,E501,E701,E401,E128,E251,F403,F405,E402'
