@@ -10,6 +10,7 @@ set smartindent
 set clipboard+=unnamed  " use the clipboards of vim and win
 set go+=a               " Visual selection automatically copied to the clipboard
 set encoding=utf-8
+set backspace=indent,eol,start
 
 autocmd BufNewFile,BufReadPost *.blade.php set filetype=blade
 autocmd Filetype py setlocal shiftwidth=4 tabstop=4
@@ -27,7 +28,6 @@ let g:ycm_key_list_previous_completion=[]
 let NERDTreeShowHidden=1
 set autoread
 au CursorHold * if exists("t:NerdTreeBufName") | call <SNR>15_refreshRoot() | endif
-let python_highlight_all=1
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -102,6 +102,9 @@ autocmd FileType vue syntax sync fromstart
 let g:nerdtree_sync_cursorline = 1
 let g:NERDTreeHighlightCursorline = 1
 let g:python_highlight_all = 1
+
+" disable mini popup on function python
+let g:jedi#show_call_signatures=2
 
 "pip install flake8
 let g:syntastic_python_flake8_args='--ignore=E302,E231,E501,E701,E401,E128,E251,F403,F405,E402'
