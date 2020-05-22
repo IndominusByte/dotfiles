@@ -108,3 +108,6 @@ let g:jedi#show_call_signatures= 2
 
 "pip install flake8
 let g:syntastic_python_flake8_args='--ignore=E302,E231,E501,E701,E401,E128,E251,F403,F405,E402,E221'
+
+highlight VertSplit ctermfg=NONE
+highlight VertSplit ctermbg=NONE
