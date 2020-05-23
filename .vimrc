@@ -114,6 +114,7 @@ let g:syntastic_python_flake8_args='--ignore=E302,E231,E501,E701,E401,E128,E251,
 highlight VertSplit ctermfg=NONE
 highlight VertSplit ctermbg=NONE
 
+" disable all mouse wheel
 nmap <ScrollWheelUp> <nop>
 nmap <S-ScrollWheelUp> <nop>
 nmap <C-ScrollWheelUp> <nop>
@@ -153,7 +154,7 @@ vmap <ScrollWheelRight> <nop>
 vmap <S-ScrollWheelRight> <nop>
 vmap <C-ScrollWheelRight> <nop>
 
-" for relative number
+" for relative number integration
 if get(g:, 'relativenumbertrainer_loaded')
   finish
 endif
