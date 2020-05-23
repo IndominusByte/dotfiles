@@ -1,5 +1,6 @@
 syntax on
 set number
+set relativenumber
 set smarttab
 set ignorecase
 set expandtab
@@ -9,6 +10,7 @@ set autoindent
 set smartindent
 set clipboard+=unnamed  " use the clipboards of vim and win
 set go+=a               " Visual selection automatically copied to the clipboard
+set mouse=a
 set encoding=utf-8
 set backspace=indent,eol,start
 
@@ -65,7 +67,7 @@ Plugin 'unkiwii/vim-nerdtree-sync'
 Plugin 'vim-python/python-syntax'
 call vundle#end()
 
-colorscheme velenjak
+colorscheme naz
 
 augroup VimCSS3Syntax
 autocmd!
@@ -99,7 +101,7 @@ let g:used_javascript_libs = 'vue'
 autocmd BufNewFile,BufRead *.vue set filetype=vue
 autocmd FileType vue syntax sync fromstart
 
-let g:nerdtree_sync_cursorline = 0
+let g:nerdtree_sync_cursorline = 1
 let g:NERDTreeHighlightCursorline = 1
 let g:python_highlight_all = 1
 
@@ -111,3 +113,78 @@ let g:syntastic_python_flake8_args='--ignore=E302,E231,E501,E701,E401,E128,E251,
 
 highlight VertSplit ctermfg=NONE
 highlight VertSplit ctermbg=NONE
+
+nmap <ScrollWheelUp> <nop>
+nmap <S-ScrollWheelUp> <nop>
+nmap <C-ScrollWheelUp> <nop>
+nmap <ScrollWheelDown> <nop>
+nmap <S-ScrollWheelDown> <nop>
+nmap <C-ScrollWheelDown> <nop>
+nmap <ScrollWheelLeft> <nop>
+nmap <S-ScrollWheelLeft> <nop>
+nmap <C-ScrollWheelLeft> <nop>
+nmap <ScrollWheelRight> <nop>
+nmap <S-ScrollWheelRight> <nop>
+nmap <C-ScrollWheelRight> <nop>
+
+imap <ScrollWheelUp> <nop>
+imap <S-ScrollWheelUp> <nop>
+imap <C-ScrollWheelUp> <nop>
+imap <ScrollWheelDown> <nop>
+imap <S-ScrollWheelDown> <nop>
+imap <C-ScrollWheelDown> <nop>
+imap <ScrollWheelLeft> <nop>
+imap <S-ScrollWheelLeft> <nop>
+imap <C-ScrollWheelLeft> <nop>
+imap <ScrollWheelRight> <nop>
+imap <S-ScrollWheelRight> <nop>
+imap <C-ScrollWheelRight> <nop>
+
+vmap <ScrollWheelUp> <nop>
+vmap <S-ScrollWheelUp> <nop>
+vmap <C-ScrollWheelUp> <nop>
+vmap <ScrollWheelDown> <nop>
+vmap <S-ScrollWheelDown> <nop>
+vmap <C-ScrollWheelDown> <nop>
+vmap <ScrollWheelLeft> <nop>
+vmap <S-ScrollWheelLeft> <nop>
+vmap <C-ScrollWheelLeft> <nop>
+vmap <ScrollWheelRight> <nop>
+vmap <S-ScrollWheelRight> <nop>
+vmap <C-ScrollWheelRight> <nop>
+
+" for relative number
+if get(g:, 'relativenumbertrainer_loaded')
+  finish
+endif
+
+let g:relativenumbertrainer_loaded = 1
+
+function! PerformRelativeLineNumberHeurstic(cmd)
+  if !&relativenumber || v:count == 0
+    return a:cmd
+  endif
+  " XXX wrapping screws up the range check, but it's close enough
+  let lines_above = winline() - 1
+  let lines_below = winheight(winnr()) - winline()
+
+  let cmd = a:cmd
+
+  if v:count < lines_above " if ambiguous, assume I mean the line above
+    let cmd = 'k'
+  elseif v:count < lines_below
+    let cmd = 'j'
+  end " otherwise, just jump to the line
+
+  if cmd != a:cmd
+    echohl WarningMsg
+    echo 'You meant "' . v:count . cmd . '"'
+    echohl None
+    sleep 1
+  endif
+
+  return cmd
+endfunction
+
+nnoremap <expr> <silent> gg PerformRelativeLineNumberHeurstic('gg')
+nnoremap <expr> <silent> G PerformRelativeLineNumberHeurstic('G')
