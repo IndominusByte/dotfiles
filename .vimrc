@@ -181,7 +181,6 @@ function! PerformRelativeLineNumberHeurstic(cmd)
     echohl WarningMsg
     echo 'You meant "' . v:count . cmd . '"'
     echohl None
-    sleep 1
   endif
 
   return cmd
