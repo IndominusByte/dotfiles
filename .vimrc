@@ -39,7 +39,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'mattn/emmet-vim'
-Plugin 'danilo-augusto/vim-afterglow'
+Plugin '1995parham/tomorrow-night-vim'
 Plugin 'mechatroner/rainbow_csv'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'ap/vim-css-color'
@@ -68,7 +68,7 @@ Plugin 'unkiwii/vim-nerdtree-sync'
 Plugin 'vim-python/python-syntax'
 call vundle#end()
 
-colorscheme afterglow
+colorscheme naz
 
 augroup VimCSS3Syntax
 autocmd!
