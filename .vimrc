@@ -37,8 +37,9 @@ Plugin 'Vundlevim/Vundle.vim'
 Plugin 'tpope/vim-vinegar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'mattn/emmet-vim'
-Plugin '1995parham/tomorrow-night-vim'
+Plugin 'danilo-augusto/vim-afterglow'
 Plugin 'mechatroner/rainbow_csv'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'ap/vim-css-color'
@@ -67,13 +68,15 @@ Plugin 'unkiwii/vim-nerdtree-sync'
 Plugin 'vim-python/python-syntax'
 call vundle#end()
 
-colorscheme naz
+colorscheme afterglow
 
 augroup VimCSS3Syntax
 autocmd!
 
 autocmd FileType css setlocal iskeyword+=-
 augroup END
+
+let g:airline_theme='tomorrow'
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php,*.vue'
 let g:phpcomplete_relax_static_constraint = 1
