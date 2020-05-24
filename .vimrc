@@ -159,11 +159,6 @@ vmap <S-ScrollWheelRight> <nop>
 vmap <C-ScrollWheelRight> <nop>
 
 " disable arrow key
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-inoremap <Up> <Nop>
-
 nnoremap <Down> <Nop>
 nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
