@@ -13,6 +13,7 @@ set go+=a               " Visual selection automatically copied to the clipboard
 set mouse=a
 set encoding=utf-8
 set backspace=indent,eol,start
+set cursorline
 
 autocmd BufNewFile,BufReadPost *.blade.php set filetype=blade
 autocmd Filetype py setlocal shiftwidth=4 tabstop=4
