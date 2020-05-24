@@ -40,7 +40,12 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'mattn/emmet-vim'
+Plugin 'danilo-augusto/vim-afterglow'
+Plugin 'jacoborus/tender.vim'
+Plugin 'NLKNguyen/papercolor-theme'
 Plugin '1995parham/tomorrow-night-vim'
+
+
 Plugin 'mechatroner/rainbow_csv'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'ap/vim-css-color'
@@ -157,3 +162,29 @@ vmap <C-ScrollWheelLeft> <nop>
 vmap <ScrollWheelRight> <nop>
 vmap <S-ScrollWheelRight> <nop>
 vmap <C-ScrollWheelRight> <nop>
+
+" disable arrow key
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+inoremap <Up> <Nop>
+
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+nnoremap <Up> <Nop>
+
+vnoremap <Down> <Nop>
+vnoremap <Left> <Nop>
+vnoremap <Right> <Nop>
+vnoremap <Up> <Nop>
+
+" disable page down and up
+inoremap <PageUp> <Nop>
+inoremap <PageDown> <Nop>
+
+nnoremap <PageUp> <Nop>
+nnoremap <PageDown> <Nop>
+
+vnoremap <PageUp> <Nop>
+vnoremap <PageDown> <Nop>
