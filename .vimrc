@@ -40,12 +40,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'mattn/emmet-vim'
-Plugin 'danilo-augusto/vim-afterglow'
-Plugin 'jacoborus/tender.vim'
-Plugin 'NLKNguyen/papercolor-theme'
 Plugin '1995parham/tomorrow-night-vim'
-
-
 Plugin 'mechatroner/rainbow_csv'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'ap/vim-css-color'
