@@ -10,7 +10,7 @@ set autoindent
 set smartindent
 set clipboard+=unnamed  " use the clipboards of vim and win
 set go+=a               " Visual selection automatically copied to the clipboard
-set mouse=a
+set mouse-=a
 set encoding=utf-8
 set backspace=indent,eol,start
 set cursorline
