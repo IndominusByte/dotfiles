@@ -15,6 +15,7 @@ set mouse-=a
 set encoding=utf-8
 set backspace=indent,eol,start
 set cursorline
+set encoding=utf-8
 
 " set tabs width 4 when file type is python
 autocmd Filetype py setlocal shiftwidth=4 tabstop=4
@@ -23,8 +24,11 @@ filetype plugin indent on
 let mapleader = ","
 nmap <Leader>m :e $MYVIMRC<cr>
 nmap <Leader>t :NERDTreeToggle<cr>
-nmap <Leader>p :SyntasticToggleMode<cr>
+nmap <Leader>l :Files<cr>
 imap <c-p> <c-x><c-o>
+
+" Copy to clipboard
+vnoremap  <leader>y  "+y
 
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
@@ -39,12 +43,17 @@ Plug 'hail2u/vim-css3-syntax' " syntax highlighting css3
 Plug 'ap/vim-css-color' " css3 color
 Plug 'jiangmiao/auto-pairs' " tag autopairs like (),[],{} etc.
 Plug 'alvan/vim-closetag' " auto close html tag
+Plug 'vim-python/python-syntax' " python syntax highlighting
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  " to highlight files in nerdtree
+" NOTE: go to https://github.com/ryanoasis/vim-devicons to more information
+" how to install icons in linux
+Plug 'ryanoasis/vim-devicons' " icon for vim
 
-" ================= Functionalities ================= "
+"================= Functionalities ================= "
 
 " autocompletion using ncm2 
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2' " dependency of ncm2
+Plug 'roxma/nvim-yarp' " awesome autocomplete plugin
 Plug 'ncm2/ncm2-bufword' " Words in buffer completion
 Plug 'ncm2/ncm2-path' " Filepath completion
 Plug 'othree/csscomplete.vim' " css autocomplete for ncm2
@@ -52,14 +61,21 @@ Plug 'othree/csscomplete.vim' " css autocomplete for ncm2
 Plug 'davidhalter/jedi-vim'
 Plug 'ncm2/ncm2-jedi'
 
-" autocorrection python file
-Plug 'vim-syntastic/syntastic'
+Plug 'dense-analysis/ale' " syntax checking and semantic errors
+
+" search plugin
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'unkiwii/vim-nerdtree-sync' " for synchronizing current open file with NERDtree
 
 call plug#end()
 " List ends here. Plugins become visible to Vim after this call.
 
 let NERDTreeShowHidden=1 " show hidden file in nerd tree
 let NERDTreeIgnore=['\.DS_Store$', '\.git$','__pycache__'] " ignore files in nerd tree
+" unkiwii/vim-nerdtree-sync options
+let g:nerdtree_sync_cursorline = 1
+let g:NERDTreeHighlightCursorline = 1
 
 " set color scheme to 1995parham/tomorrow-night-vim
 colorscheme naz
@@ -74,6 +90,14 @@ augroup VimCSS3Syntax
 
   autocmd FileType css setlocal iskeyword+=-
 augroup END
+
+" Border color for fzf
+let g:fzf_layout = 
+      \ {'up':'~90%', 
+      \ 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
+
+" init vim-python/python-syntax plugin
+let g:python_highlight_all = 1
 
 " NCM SETTINGS BEGIN
 " NOTE: when launch neovim given following error like this [ncm2_core@yarp] Job is dead.
@@ -101,18 +125,6 @@ let ncm2#popup_delay = 5
 let ncm2#complete_length = [[1, 1]]
 " NCM SETTINGS END
 
-" syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-" pip install flake8
-let g:syntastic_python_flake8_args='--ignore=E302,E231,E501,E701,E401,E128,E251,F403,F405,E402,E221'
-
 " Disable Jedi-vim autocompletion and enable call-signatures options
 let g:jedi#auto_initialization = 1
 let g:jedi#completions_enabled = 0
@@ -121,6 +133,19 @@ let g:jedi#smart_auto_mappings = 0
 let g:jedi#popup_on_dot = 0
 let g:jedi#completions_command = ""
 let g:jedi#show_call_signatures = 1
+
+" ale options
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '∙∙'
+let g:ale_python_flake8_options = '--ignore=E302,E231,E501,E701,E401,E128,E251,F403,F405,E402,E221'
+
+let g:ale_list_window_size = 8
+let g:ale_sign_column_always = 0
+let g:ale_open_list = 1
 
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
