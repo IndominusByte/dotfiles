@@ -86,7 +86,6 @@ Plug 'unkiwii/vim-nerdtree-sync' " for synchronizing current open file with NERD
 " NOTE: :CocInstall coc-json coc-tsserver coc-vetur, run in command mode after installing coc.nvim
 " more information: https://github.com/neoclide/coc.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 Plug 'tpope/vim-commentary' " commentary in vim
 
 call plug#end()
