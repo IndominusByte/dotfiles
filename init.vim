@@ -95,6 +95,8 @@ let g:NERDTreeHighlightCursorline = 1
 
 " set color scheme to 1995parham/tomorrow-night-vim
 colorscheme naz
+" make colorscheme transparent
+hi Normal guibg=NONE ctermbg=NONE
 
 " change color to none when vertical split
 highlight VertSplit ctermfg=NONE
