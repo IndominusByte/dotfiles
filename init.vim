@@ -24,8 +24,9 @@ filetype plugin indent on
 let mapleader = ","
 nmap <Leader>m :e $MYVIMRC<cr>
 nmap <Leader>t :NERDTreeToggle<cr>
-nmap <Leader>l :Files<cr>
-nmap <Leader>; :GFiles<cr>
+nmap <Leader>p :PrettierAsync<cr>
+nmap <Leader>l :GFiles<cr>
+nmap <Leader>; :Files<cr>
 imap <c-p> <c-x><c-o>
 
 " Copy to clipboard
@@ -50,6 +51,12 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  " to highlight files in nerdtree
 " how to install icons in linux
 Plug 'ryanoasis/vim-devicons' " icon for vim
 Plug 'glench/vim-jinja2-syntax' " styling jinja2 syntax
+" post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'npm install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+" syntax highlighting for vue
+Plug 'posva/vim-vue'
 
 "================= Functionalities ================= "
 
@@ -62,6 +69,8 @@ Plug 'othree/csscomplete.vim' " css autocomplete for ncm2
 " autocomplete for python
 Plug 'davidhalter/jedi-vim'
 Plug 'ncm2/ncm2-jedi'
+" enable css completion in file javascript
+Plug 'ncm2/ncm2-html-subscope'
 
 Plug 'dense-analysis/ale' " syntax checking and semantic errors
 
@@ -69,6 +78,11 @@ Plug 'dense-analysis/ale' " syntax checking and semantic errors
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'unkiwii/vim-nerdtree-sync' " for synchronizing current open file with NERDtree
+
+" autocomplete for javascript
+" NOTE: :CocInstall coc-json coc-tsserver coc-vetur, run in command mode after installing coc.nvim
+" more information: https://github.com/neoclide/coc.nvim
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 " List ends here. Plugins become visible to Vim after this call.
@@ -92,6 +106,11 @@ augroup VimCSS3Syntax
 
   autocmd FileType css setlocal iskeyword+=-
 augroup END
+
+" coc.nvim options
+let g:coc_disable_startup_warning = 1
+" posva/vim-vue options 
+let g:vue_pre_processors = 'detect_on_enter'
 
 " Border color for fzf
 let g:fzf_layout = 
