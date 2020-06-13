@@ -25,6 +25,7 @@ let mapleader = ","
 nmap <Leader>m :e $MYVIMRC<cr>
 nmap <Leader>t :NERDTreeToggle<cr>
 nmap <Leader>l :Files<cr>
+nmap <Leader>; :GFiles<cr>
 imap <c-p> <c-x><c-o>
 
 " Copy to clipboard
@@ -48,6 +49,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  " to highlight files in nerdtree
 " NOTE: go to https://github.com/ryanoasis/vim-devicons to more information
 " how to install icons in linux
 Plug 'ryanoasis/vim-devicons' " icon for vim
+Plug 'glench/vim-jinja2-syntax' " styling jinja2 syntax
 
 "================= Functionalities ================= "
 
