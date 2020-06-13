@@ -31,6 +31,9 @@ imap <c-p> <c-x><c-o>
 
 " Copy to clipboard
 vnoremap  <leader>y  "+y
+" Better tabbing
+vnoremap < <gv
+vnoremap > >gv
 
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
