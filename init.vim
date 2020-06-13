@@ -112,7 +112,12 @@ let g:coc_disable_startup_warning = 1
 " posva/vim-vue options 
 let g:vue_pre_processors = 'detect_on_enter'
 
-" Border color for fzf
+" NOTE: to customize preview window color in fzf
+" 1. install bat in official web : https://github.com/sharkdp/bat
+" 2. export BAT_THEME="Dracula", or add to ~/.zshrc in my case
+" 3. see all list theme : bat --list-themes, run in your terminal
+
+"Border color for fzf
 let g:fzf_layout = 
       \ {'up':'~90%', 
       \ 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
