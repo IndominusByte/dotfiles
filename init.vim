@@ -91,6 +91,10 @@ Plug 'tpope/vim-commentary' " commentary in vim
 call plug#end()
 " List ends here. Plugins become visible to Vim after this call.
 
+" path to your python 
+let g:python3_host_prog = '/usr/bin/python3'
+let g:python_host_prog = '/usr/bin/python2'
+
 let NERDTreeShowHidden=1 " show hidden file in nerd tree
 let NERDTreeIgnore=['\.DS_Store$', '\.git$','__pycache__'] " ignore files in nerd tree
 " unkiwii/vim-nerdtree-sync options
@@ -154,7 +158,7 @@ au User Ncm2Plugin call ncm2#register_source({
         \ })
 " make it fast
 let ncm2#popup_delay = 5
-let ncm2#complete_length = [[1, 1]]
+let ncm2#complete_length = [[1,1]]
 " NCM SETTINGS END
 
 " Disable Jedi-vim autocompletion and enable call-signatures options
