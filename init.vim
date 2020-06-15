@@ -24,6 +24,7 @@ filetype plugin indent on
 let mapleader = ","
 nmap <Leader>m :e $MYVIMRC<cr>
 nmap <Leader>t :NERDTreeToggle<cr>
+nmap <Leader>f :RnvimrToggle<cr>
 nmap <Leader>p :PrettierAsync<cr>
 nmap <Leader>l :GFiles<cr>
 nmap <Leader>; :Files<cr>
@@ -88,6 +89,9 @@ Plug 'unkiwii/vim-nerdtree-sync' " for synchronizing current open file with NERD
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary' " commentary in vim
 
+" Synchronize all Ranger's configuration and plugins with Rnvimr
+Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+
 call plug#end()
 " List ends here. Plugins become visible to Vim after this call.
 
@@ -100,6 +104,14 @@ let NERDTreeIgnore=['\.DS_Store$', '\.git$','__pycache__'] " ignore files in ner
 " unkiwii/vim-nerdtree-sync options
 let g:nerdtree_sync_cursorline = 1
 let g:NERDTreeHighlightCursorline = 1
+
+" Ranger Settings
+let g:rnvimr_ex_enable = 1
+let g:rnvimr_pick_enable = 1
+let g:rnvimr_bw_enable = 1
+let g:rnvimr_ranger_cmd = 'ranger --cmd="set preview_images false"
+            \ --cmd="set preview_images_method w3m"'
+let g:rnvimr_presets = [{'width': 0.800, 'height': 0.792}]
 
 " set color scheme to 1995parham/tomorrow-night-vim
 colorscheme naz
