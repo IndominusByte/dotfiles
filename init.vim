@@ -75,6 +75,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary' " commentary in vim
 Plug 'voldikss/vim-floaterm' " vim terminal in the floating/popup window.
 Plug 'liuchengxu/vim-which-key' " displays available keybindings in popup
+" Synchronize all Ranger's configuration and plugins with Rnvimr
+Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 
 call plug#end()
 " List ends here. Plugins become visible to Vim after this call.
@@ -121,7 +123,7 @@ let g:which_key_map['w'] = {
       \ 'name' : 'terminal' ,
       \ ';' : [':FloatermNew', 'terminal'],
       \ 'p' : [':FloatermNew python3', 'python'],
-      \ 'r' : [':FloatermNew ranger --cmd="set preview_images true" --cmd="set preview_images_method w3m"', 'ranger'],
+      \ 'r' : [':RnvimrToggle', 'ranger'],
       \ }
 
 " Register which key map
@@ -134,6 +136,13 @@ let g:floaterm_keymap_toggle = '<F1>'
 let g:floaterm_keymap_next   = '<F2>'
 let g:floaterm_keymap_prev   = '<F3>'
 let g:floaterm_keymap_new    = '<F4>'
+
+" Ranger Settings
+let g:rnvimr_ex_enable = 1
+let g:rnvimr_pick_enable = 1
+let g:rnvimr_bw_enable = 1
+let g:rnvimr_ranger_cmd = 'ranger --cmd="set preview_images_method w3m"'
+let g:rnvimr_presets = [{'width': 0.8, 'height': 0.8}]
 
 " path to your python 
 let g:python3_host_prog = '/usr/bin/python3'
