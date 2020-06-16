@@ -21,21 +21,6 @@ set encoding=utf-8
 autocmd Filetype py setlocal shiftwidth=4 tabstop=4
 filetype plugin indent on
 
-let mapleader = ","
-nmap <Leader>m :e $MYVIMRC<cr>
-nmap <Leader>t :NERDTreeToggle<cr>
-nmap <Leader>f :RnvimrToggle<cr>
-nmap <Leader>p :PrettierAsync<cr>
-nmap <Leader>l :GFiles<cr>
-nmap <Leader>; :Files<cr>
-imap <c-p> <c-x><c-o>
-
-" Copy to clipboard
-vnoremap  <leader>y  "+y
-" Better tabbing
-vnoremap < <gv
-vnoremap > >gv
-
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 " ================= looks and basic stuff ================== "
@@ -88,12 +73,67 @@ Plug 'unkiwii/vim-nerdtree-sync' " for synchronizing current open file with NERD
 " more information: https://github.com/neoclide/coc.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary' " commentary in vim
-
-" Synchronize all Ranger's configuration and plugins with Rnvimr
-Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+Plug 'voldikss/vim-floaterm' " vim terminal in the floating/popup window.
+Plug 'liuchengxu/vim-which-key' " displays available keybindings in popup
 
 call plug#end()
 " List ends here. Plugins become visible to Vim after this call.
+
+let mapleader = ","
+
+" Better tabbing
+vnoremap < <gv
+vnoremap > >gv
+
+" Map leader to which_key
+nnoremap <silent> <leader> :silent WhichKey '<Space>'<CR>
+vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
+
+" Create map to add keys to
+let g:which_key_map =  {}
+" Define a separator
+let g:which_key_sep = '→'
+" By default timeoutlen is 1000 ms
+set timeoutlen=100
+
+" Not a fan of floating windows for this
+let g:which_key_use_floating_win = 0
+
+" Change the colors if you want
+highlight default link WhichKey          Operator
+highlight default link WhichKeySeperator DiffAdded
+highlight default link WhichKeyGroup     Identifier
+highlight default link WhichKeyDesc      Function
+
+" Hide status line
+autocmd! FileType which_key
+autocmd  FileType which_key set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
+
+" Single mappings
+let g:which_key_map['m'] = [':e $MYVIMRC', 'vim setting']
+let g:which_key_map['t'] = [':NERDTreeToggle', 'nerdtree']
+let g:which_key_map['p'] = [':PrettierAsync', 'prettier js']
+let g:which_key_map['l'] = [':GFiles', 'fzf git']
+let g:which_key_map[';'] = [':Files', 'fzf file']
+
+let g:which_key_map['w'] = {
+      \ 'name' : 'terminal' ,
+      \ ';' : [':FloatermNew', 'terminal'],
+      \ 'p' : [':FloatermNew python3', 'python'],
+      \ 'r' : [':FloatermNew ranger --cmd="set preview_images true" --cmd="set preview_images_method w3m"', 'ranger'],
+      \ }
+
+" Register which key map
+call which_key#register('<Space>', "g:which_key_map")
+
+" Floatterm settings
+let g:floaterm_width=0.8
+let g:floaterm_height=0.8
+let g:floaterm_keymap_toggle = '<F1>'
+let g:floaterm_keymap_next   = '<F2>'
+let g:floaterm_keymap_prev   = '<F3>'
+let g:floaterm_keymap_new    = '<F4>'
 
 " path to your python 
 let g:python3_host_prog = '/usr/bin/python3'
@@ -104,14 +144,6 @@ let NERDTreeIgnore=['\.DS_Store$', '\.git$','__pycache__'] " ignore files in ner
 " unkiwii/vim-nerdtree-sync options
 let g:nerdtree_sync_cursorline = 1
 let g:NERDTreeHighlightCursorline = 1
-
-" Ranger Settings
-let g:rnvimr_ex_enable = 1
-let g:rnvimr_pick_enable = 1
-let g:rnvimr_bw_enable = 1
-let g:rnvimr_ranger_cmd = 'ranger --cmd="set preview_images false"
-            \ --cmd="set preview_images_method w3m"'
-let g:rnvimr_presets = [{'width': 0.800, 'height': 0.792}]
 
 " set color scheme to 1995parham/tomorrow-night-vim
 colorscheme naz
@@ -147,7 +179,7 @@ let g:fzf_layout =
 " init vim-python/python-syntax plugin
 let g:python_highlight_all = 1
 
-" NCM SETTINGS BEGIN
+" NCM SETTINGS
 " NOTE: when launch neovim given following error like this [ncm2_core@yarp] Job is dead.
 " RUN: sudo pip3 install --upgrade neovim, tested on ubuntu 18.04
 " NOTE: required install jedi from pip when use autocomplete ncm2-jedi
@@ -171,7 +203,6 @@ au User Ncm2Plugin call ncm2#register_source({
 " make it fast
 let ncm2#popup_delay = 5
 let ncm2#complete_length = [[1,1]]
-" NCM SETTINGS END
 
 " Disable Jedi-vim autocompletion and enable call-signatures options
 let g:jedi#auto_initialization = 1
