@@ -229,7 +229,7 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '∙∙'
-let g:ale_python_flake8_options = '--ignore=E302,E231,E501,E701,E401,E128,E251,F403,F405,E402,E221'
+let g:ale_python_flake8_options = '--ignore=E302,E231,E501,E701,E401,E128,E251,F403,F405,E402,E221,W504,F722'
 
 let g:ale_list_window_size = 8
 let g:ale_sign_column_always = 0
