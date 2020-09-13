@@ -46,6 +46,7 @@ Plug 'prettier/vim-prettier', {
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 " syntax highlighting for vue
 Plug 'posva/vim-vue'
+Plug 'ekalinin/Dockerfile.vim' " syntax highlighting Dockerfile
 
 "================= Functionalities ================= "
 
@@ -69,7 +70,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'unkiwii/vim-nerdtree-sync' " for synchronizing current open file with NERDtree
 
 " autocomplete for javascript
-" NOTE: :CocInstall coc-json coc-tsserver coc-vetur, run in command mode after installing coc.nvim
+" NOTE: :CocInstall coc-json coc-tsserver coc-vetur coc-docker, run in command mode after installing coc.nvim
 " more information: https://github.com/neoclide/coc.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary' " commentary in vim
