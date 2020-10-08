@@ -150,7 +150,7 @@ let g:python3_host_prog = '/usr/bin/python3'
 let g:python_host_prog = '/usr/bin/python2'
 
 let NERDTreeShowHidden=1 " show hidden file in nerd tree
-let NERDTreeIgnore=['\.DS_Store$', '\.git$','__pycache__'] " ignore files in nerd tree
+let NERDTreeIgnore=['\.DS_Store$', '\.git$','^env$', '__pycache__'] " ignore files in nerd tree
 " unkiwii/vim-nerdtree-sync options
 let g:nerdtree_sync_cursorline = 1
 let g:NERDTreeHighlightCursorline = 1
