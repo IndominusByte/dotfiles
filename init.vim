@@ -163,6 +163,8 @@ hi Normal guibg=NONE ctermbg=NONE
 " change color to none when vertical split
 highlight VertSplit ctermfg=NONE
 highlight VertSplit ctermbg=NONE
+" color relativenumber
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 " init setting for hail2u/vim-css3-syntax
 augroup VimCSS3Syntax
