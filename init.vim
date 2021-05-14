@@ -227,7 +227,8 @@ let g:jedi#popup_on_dot = 0
 let g:jedi#completions_command = ""
 let g:jedi#show_call_signatures = 1
 
-" ale options
+" ALE SETTINGS
+" RUN: sudo pip3 install flake8
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
