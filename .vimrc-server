@@ -1,0 +1,94 @@
+syntax on
+set number
+set relativenumber
+set smarttab
+set ignorecase
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set autoindent
+set smartindent
+set clipboard+=unnamed  " use the clipboards of vim and win
+set go+=a               " Visual selection automatically copied to the clipboard
+set mouse-=a
+set encoding=utf-8
+set backspace=indent,eol,start
+set cursorline
+set encoding=utf-8
+
+filetype plugin indent on
+
+call plug#begin('~/.vim/plugged')
+Plug 'joshdick/onedark.vim'
+Plug 'chr4/nginx.vim'
+call plug#end()
+
+let mapleader = ","
+nmap <Leader>m :e $MYVIMRC<cr>
+
+" Better tabbing
+vnoremap < <gv
+vnoremap > >gv
+
+colorscheme onedark
+
+" disable all mouse wheel
+nmap <ScrollWheelUp> <nop>
+nmap <S-ScrollWheelUp> <nop>
+nmap <C-ScrollWheelUp> <nop>
+nmap <ScrollWheelDown> <nop>
+nmap <S-ScrollWheelDown> <nop>
+nmap <C-ScrollWheelDown> <nop>
+nmap <ScrollWheelLeft> <nop>
+nmap <S-ScrollWheelLeft> <nop>
+nmap <C-ScrollWheelLeft> <nop>
+nmap <ScrollWheelRight> <nop>
+nmap <S-ScrollWheelRight> <nop>
+nmap <C-ScrollWheelRight> <nop>
+
+imap <ScrollWheelUp> <nop>
+imap <S-ScrollWheelUp> <nop>
+imap <C-ScrollWheelUp> <nop>
+imap <ScrollWheelDown> <nop>
+imap <S-ScrollWheelDown> <nop>
+imap <C-ScrollWheelDown> <nop>
+imap <ScrollWheelLeft> <nop>
+imap <S-ScrollWheelLeft> <nop>
+imap <C-ScrollWheelLeft> <nop>
+imap <ScrollWheelRight> <nop>
+imap <S-ScrollWheelRight> <nop>
+imap <C-ScrollWheelRight> <nop>
+
+vmap <ScrollWheelUp> <nop>
+vmap <S-ScrollWheelUp> <nop>
+vmap <C-ScrollWheelUp> <nop>
+vmap <ScrollWheelDown> <nop>
+vmap <S-ScrollWheelDown> <nop>
+vmap <C-ScrollWheelDown> <nop>
+vmap <ScrollWheelLeft> <nop>
+vmap <S-ScrollWheelLeft> <nop>
+vmap <C-ScrollWheelLeft> <nop>
+vmap <ScrollWheelRight> <nop>
+vmap <S-ScrollWheelRight> <nop>
+vmap <C-ScrollWheelRight> <nop>
+
+" disable arrow key
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+nnoremap <Up> <Nop>
+
+vnoremap <Down> <Nop>
+vnoremap <Left> <Nop>
+vnoremap <Right> <Nop>
+vnoremap <Up> <Nop>
+
+" disable page down and up
+inoremap <PageUp> <Nop>
+inoremap <PageDown> <Nop>
+
+nnoremap <PageUp> <Nop>
+nnoremap <PageDown> <Nop>
+
+vnoremap <PageUp> <Nop>
+vnoremap <PageDown> <Nop>
