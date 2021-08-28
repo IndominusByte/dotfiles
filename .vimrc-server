@@ -20,6 +20,8 @@ filetype plugin indent on
 
 call plug#begin('~/.vim/plugged')
 Plug 'joshdick/onedark.vim'
+Plug 'jiangmiao/auto-pairs' " tag autopairs like (),[],{} etc.
+Plug 'tpope/vim-commentary' " commentary in vim
 Plug 'chr4/nginx.vim'
 call plug#end()
 
