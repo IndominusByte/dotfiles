@@ -48,8 +48,8 @@ Plug 'prettier/vim-prettier', {
 " syntax highlighting for vue
 Plug 'posva/vim-vue'
 Plug 'ekalinin/Dockerfile.vim' " syntax highlighting Dockerfile
-
-"================= Functionalities ================= "
+Plug 'chr4/nginx.vim' " syntax highlighting nginx
+" ================= Functionalities ================= "
 
 " autocompletion using ncm2 
 Plug 'ncm2/ncm2' " dependency of ncm2
