@@ -45,8 +45,8 @@ Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install',
   \ 'branch': 'release/0.x',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html', 'php'] }
-" syntax highlighting for vue
-Plug 'posva/vim-vue'
+Plug 'posva/vim-vue' " syntax highlighting for vue
+Plug 'maxmellon/vim-jsx-pretty' " syntax highlighting for jsx
 Plug 'ekalinin/Dockerfile.vim' " syntax highlighting Dockerfile
 Plug 'chr4/nginx.vim' " syntax highlighting nginx
 " ================= Functionalities ================= "
@@ -241,15 +241,20 @@ let g:ale_list_window_size = 8
 let g:ale_sign_column_always = 0
 let g:ale_open_list = 1
 
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\}
+
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue,*.php'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue,*.php,*.jsx,*.js'
 " filenames like *.xml, *.xhtml, ...
 " This will make the list of non-closing tags self-closing in the specified files.
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
 " filetypes like xml, html, xhtml, ...
 " These are the file types where this plugin is enabled.
-let g:closetag_filetypes = 'html,xhtml,phtml'
+let g:closetag_filetypes = 'html,xhtml,phtml,jsx,js'
 " filetypes like xml, xhtml, ...
 " This will make the list of non-closing tags self-closing in the specified files.
 let g:closetag_xhtml_filetypes = 'xhtml,jsx'
@@ -278,6 +283,29 @@ let g:prettier#config#tab_width = 2
 " use tabs instead of spaces: true, false, or auto (use the expandtab setting).
 " default: 'auto'
 let g:prettier#config#use_tabs = 'false'
+" Use single quotes instead of double quotes.
+" default: 'false'
+" See more: https://prettier.io/docs/en/options.html#quotes
+let g:prettier#config#single_quote = 'false'
+" print spaces between brackets
+" default: 'true'
+" See more: https://prettier.io/docs/en/options.html#bracket-spacing
+let g:prettier#config#bracket_spacing = 'true'
+" put > on the last line instead of new line
+" default: 'false'
+" See more: https://prettier.io/docs/en/options.html#jsx-brackets
+let g:prettier#config#jsx_bracket_same_line = get(g:,'prettier#config#jsx_bracket_same_line', 'false')
+" avoid wrapping a single arrow function param in parens
+" avoid|always
+" default: 'always'
+" See more: https://prettier.io/docs/en/options.html#arrow-function-parentheses
+let g:prettier#config#arrow_parens = get(g:,'prettier#config#arrow_parens', 'always')
+
+
+" VIM-JSX-PRETTY SETTINGS
+let g:vim_jsx_pretty_template_tags = ['html', 'jsx', 'js']
+let g:vim_jsx_pretty_highlight_close_tag = 1
+let g:vim_jsx_pretty_colorful_config = 1
 
 
 " disable all mouse wheel
