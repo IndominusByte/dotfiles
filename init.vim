@@ -16,9 +16,15 @@ set encoding=utf-8
 set backspace=indent,eol,start
 set cursorline
 set encoding=utf-8
+set foldmethod=indent
+set nofoldenable
+set foldlevel=2
 
 " set tabs width 4 when file type is python
 autocmd Filetype py setlocal shiftwidth=4 tabstop=4
+" set tabs width 4 when file type is golang
+autocmd Filetype go setlocal shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
+
 filetype plugin indent on
 
 " Plugins will be downloaded under the specified directory.
@@ -49,12 +55,12 @@ Plug 'posva/vim-vue' " syntax highlighting for vue
 Plug 'maxmellon/vim-jsx-pretty' " syntax highlighting for jsx
 Plug 'ekalinin/Dockerfile.vim' " syntax highlighting Dockerfile
 Plug 'chr4/nginx.vim' " syntax highlighting nginx
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " syntax highlighting golang
 " ================= Functionalities ================= "
 
 " autocompletion using ncm2 
 Plug 'ncm2/ncm2' " dependency of ncm2
 Plug 'roxma/nvim-yarp' " awesome autocomplete plugin
-Plug 'ncm2/ncm2-bufword' " Words in buffer completion
 Plug 'ncm2/ncm2-path' " Filepath completion
 Plug 'othree/csscomplete.vim' " css autocomplete for ncm2
 " autocomplete for python
@@ -62,7 +68,6 @@ Plug 'davidhalter/jedi-vim'
 Plug 'ncm2/ncm2-jedi'
 " enable css completion in file javascript
 Plug 'ncm2/ncm2-html-subscope'
-
 Plug 'dense-analysis/ale' " syntax checking and semantic errors
 
 " search plugin
@@ -71,7 +76,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'unkiwii/vim-nerdtree-sync' " for synchronizing current open file with NERDtree
 
 " autocomplete for javascript
-" NOTE: :CocInstall coc-json coc-tsserver coc-vetur coc-docker, run in command mode after installing coc.nvim
+" NOTE: :CocInstall coc-json coc-tsserver coc-vetur coc-docker coc-go, run in command mode after installing coc.nvim
 " more information: https://github.com/neoclide/coc.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary' " commentary in vim
@@ -301,12 +306,17 @@ let g:prettier#config#jsx_bracket_same_line = get(g:,'prettier#config#jsx_bracke
 " See more: https://prettier.io/docs/en/options.html#arrow-function-parentheses
 let g:prettier#config#arrow_parens = get(g:,'prettier#config#arrow_parens', 'always')
 
-
 " VIM-JSX-PRETTY SETTINGS
 let g:vim_jsx_pretty_template_tags = ['html', 'jsx', 'js']
 let g:vim_jsx_pretty_highlight_close_tag = 1
 let g:vim_jsx_pretty_colorful_config = 1
 
+"Go syntax highlighting
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
 
 " disable all mouse wheel
 nmap <ScrollWheelUp> <nop>
