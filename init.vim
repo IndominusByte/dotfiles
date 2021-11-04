@@ -61,7 +61,6 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " syntax highlighting golang
 " autocompletion using ncm2 
 Plug 'ncm2/ncm2' " dependency of ncm2
 Plug 'roxma/nvim-yarp' " awesome autocomplete plugin
-Plug 'ncm2/ncm2-path' " Filepath completion
 Plug 'othree/csscomplete.vim' " css autocomplete for ncm2
 " autocomplete for python
 Plug 'davidhalter/jedi-vim'
