@@ -75,7 +75,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'unkiwii/vim-nerdtree-sync' " for synchronizing current open file with NERDtree
 
 " autocomplete for javascript
-" NOTE: :CocInstall coc-json coc-tsserver coc-vetur coc-docker coc-go, run in command mode after installing coc.nvim
+" NOTE: :CocInstall coc-json coc-tsserver coc-vetur coc-docker coc-go coc-swagger, run in command mode after installing coc.nvim
 " more information: https://github.com/neoclide/coc.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary' " commentary in vim
