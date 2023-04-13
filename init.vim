@@ -422,4 +422,3 @@ nnoremap <PageUp> <Nop>
 nnoremap <PageDown> <Nop>
 
 vnoremap <PageUp> <Nop>
-vnoremap <PageDown> <Nop>
